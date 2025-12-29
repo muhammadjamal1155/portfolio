@@ -23,23 +23,15 @@ const Education = () => {
   const certifications = [
     {
       name: 'Machine Learning Specialization',
-      issuer: 'Coursera - Stanford University',
-      date: '2024',
+      issuer: 'Coursera',
     },
     {
-      name: 'Full Stack Web Development',
-      issuer: 'freeCodeCamp',
-      date: '2023',
+      name: 'Data Analysis with Python',
+      issuer: 'DataCamp',
     },
     {
-      name: 'Data Science Professional Certificate',
-      issuer: 'IBM',
-      date: '2023',
-    },
-    {
-      name: 'AWS Cloud Practitioner',
-      issuer: 'Amazon Web Services',
-      date: '2024',
+      name: 'Prompt Engineering Essentials',
+      issuer: 'Coursera',
     },
   ]
 
