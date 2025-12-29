@@ -168,9 +168,9 @@ Feel free to fork this project and customize it for your own portfolio!
 
 ## 📧 Contact
 
-- Email: your.email@example.com
+- Email: muhammadjamal1144@gmail.com
 - LinkedIn: [Muhammad Jamal](https://www.linkedin.com/in/muhammad-jamal-a08241240)
-- GitHub: [Your GitHub](https://github.com/yourusername)
+- GitHub: [muhammadjamal1155](https://github.com/muhammadjamal1155)
 
 ---
 
