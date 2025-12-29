@@ -27,7 +27,7 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
-  ]
+  ];
 
   return (
     <nav
@@ -100,7 +100,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                className="block py-2 text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
