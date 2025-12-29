@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa'
+
+import { useTheme } from 'next-themes'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { theme, setTheme, systemTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +33,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white shadow-md py-4'
+          ? 'bg-white dark:bg-gray-900 shadow-md py-4'
           : 'bg-transparent py-6'
       }`}
     >
@@ -41,23 +44,38 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+                className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
               >
                 {link.name}
               </a>
             ))}
+            <button
+              aria-label="Toggle Theme"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700 hover:text-primary-600"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              aria-label="Toggle Theme"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            </button>
+            <button
+              className="text-gray-700 dark:text-gray-200 hover:text-primary-600"
+              onClick={() => setIsOpen(!isOpen)}
+            >
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
