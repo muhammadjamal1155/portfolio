@@ -91,6 +91,8 @@ const Navbar = () => {
           </button>
         </div>
 
+        </div>
+
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden mt-4 pb-4">
@@ -106,7 +108,6 @@ const Navbar = () => {
             ))}
           </div>
         )}
-      </div>
       </div>
     </nav>
   )
