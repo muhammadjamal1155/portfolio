@@ -65,13 +65,24 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
-            <button
-              aria-label="Toggle Theme"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              {theme === 'dark' ? <FaSun /> : <FaMoon />}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                aria-label="Use System Theme"
+                onClick={() => setTheme('system')}
+                className={`p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${theme === 'system' ? 'text-primary-600' : 'text-gray-700 dark:text-gray-200'}`}
+                title="System"
+              >
+                <span className="text-xs font-semibold">SYS</span>
+              </button>
+              <button
+                aria-label="Toggle Theme"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+              >
+                {theme === 'dark' ? <FaSun /> : <FaMoon />}
+              </button>
+            </div>
             <button
               className="text-gray-700 dark:text-gray-200 hover:text-primary-600"
               onClick={() => setIsOpen(!isOpen)}
@@ -95,6 +106,7 @@ const Navbar = () => {
             ))}
           </div>
         )}
+      </div>
       </div>
     </nav>
   )
