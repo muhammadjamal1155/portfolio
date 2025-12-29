@@ -24,14 +24,17 @@ const Education = () => {
     {
       name: 'Machine Learning Specialization',
       issuer: 'Coursera',
+      date: '2023',
     },
     {
       name: 'Data Analysis with Python',
       issuer: 'DataCamp',
+      date: '2023',
     },
     {
       name: 'Prompt Engineering Essentials',
       issuer: 'Coursera',
+      date: '2024',
     },
   ]
 
@@ -55,7 +58,7 @@ const Education = () => {
                 <FaGraduationCap className="text-3xl text-primary-600" />
                 <h3 className="text-2xl font-bold text-gray-800">Education</h3>
               </div>
-              
+
               {education.map((edu, index) => (
                 <motion.div
                   key={index}
@@ -91,7 +94,7 @@ const Education = () => {
                 <FaCertificate className="text-3xl text-primary-600" />
                 <h3 className="text-2xl font-bold text-gray-800">Certifications</h3>
               </div>
-              
+
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
                   <motion.div
