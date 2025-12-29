@@ -33,7 +33,7 @@ const Footer = () => {
               <FaTwitter size={24} />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:muhammadjamal1144@gmail.com"
               className="hover:text-primary-400 transition-colors duration-200"
             >
               <FaEnvelope size={24} />
