@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa'
+import { FaBars, FaTimes, FaSun, FaMoon, FaGithub } from 'react-icons/fa'
 
 import { useTheme } from 'next-themes'
 
@@ -31,11 +31,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white dark:bg-gray-900 shadow-md py-4'
-          : 'bg-transparent py-6'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+        ? 'bg-white dark:bg-gray-900 shadow-md py-4'
+        : 'bg-transparent py-6'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -61,6 +60,15 @@ const Navbar = () => {
             >
               {theme === 'dark' ? <FaSun /> : <FaMoon />}
             </button>
+            <a
+              href="https://github.com/muhammadjamal1155"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub size={20} />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,9 +95,9 @@ const Navbar = () => {
               className="text-gray-700 dark:text-gray-200 hover:text-primary-600"
               onClick={() => setIsOpen(!isOpen)}
             >
-            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
+              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
 
         </div>
 

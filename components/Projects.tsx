@@ -38,6 +38,24 @@ const Projects = () => {
       demo: '#',
       image: '/projects/portfolio.jpg',
     },
+    {
+      title: 'GMS v0 Demo',
+      category: 'Full Stack',
+      description: 'GMS Next prototype automatically synced with v0.app deployments. Features modern UI components, PostgreSQL integration, and automated deployment pipelines.',
+      technologies: ['Next.js', 'TypeScript', 'Radix UI', 'Tailwind CSS', 'Neon DB', 'PostgreSQL'],
+      github: 'https://github.com/SAJ33L/GMS-v0-demo',
+      demo: '#',
+      image: '/projects/gms-demo.jpg',
+    },
+    {
+      title: 'GitHub Partner Bot',
+      category: 'Bot / Automation',
+      description: 'A project created with Lovable, serving as a base for a web application that can be edited through the Lovable platform. Built with modern web technologies.',
+      technologies: ['TypeScript', 'React', 'Vite', 'shadcn-ui', 'Tailwind CSS'],
+      github: 'https://github.com/muhammadjamal1155/github-partner-bot',
+      demo: '#',
+      image: '/projects/partner-bot.jpg',
+    },
   ]
 
   return (
@@ -68,7 +86,7 @@ const Projects = () => {
                 <div className="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
                   <span className="text-white text-6xl opacity-50">📊</span>
                 </div>
-                
+
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold text-gray-900">
@@ -78,11 +96,11 @@ const Projects = () => {
                       {project.category}
                     </span>
                   </div>
-                  
+
                   <p className="text-gray-600 mb-4 text-sm">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <span
@@ -93,7 +111,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-4">
                     <a
                       href={project.github}
