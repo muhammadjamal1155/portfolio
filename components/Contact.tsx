@@ -52,7 +52,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            I'm currently open to new opportunities and collaborations. Feel free to reach out!
+            I&apos;m currently open to new opportunities and collaborations. Feel free to reach out!
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -115,8 +115,8 @@ const Contact = () => {
                   Looking for Opportunities
                 </h4>
                 <p className="text-gray-700">
-                  I'm actively seeking internship and entry-level positions in data science 
-                  and full-stack development. Let's connect!
+                  I&apos;m actively seeking internship and entry-level positions in data science 
+                  and full-stack development. Let&apos;s connect!
                 </p>
               </div>
             </motion.div>
@@ -172,7 +172,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
-                    placeholder="What's this about?"
+                    placeholder="What&apos;s this about?"
                   />
                 </div>
 
@@ -209,7 +209,7 @@ const Contact = () => {
 
                 {status === 'success' && (
                   <div className="p-4 bg-green-100 text-green-700 rounded-lg text-center">
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </div>
                 )}
               </form>

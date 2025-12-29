@@ -25,14 +25,14 @@ const About = () => {
           <div className="max-w-3xl mx-auto">
             <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                I'm a passionate data science student and full-stack developer intern with a strong 
+                I&apos;m a passionate data science student and full-stack developer intern with a strong 
                 foundation in both analytical and technical skills. My journey combines the worlds 
                 of data analysis, machine learning, and modern web development.
               </p>
               
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 As a data science student, I work with Python, statistical analysis, and machine 
-                learning algorithms to extract meaningful insights from complex datasets. I'm 
+                learning algorithms to extract meaningful insights from complex datasets. I&apos;m 
                 fascinated by how data can drive decision-making and solve real-world problems.
               </p>
               
