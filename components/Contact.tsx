@@ -30,7 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    
+
     // Simulate form submission
     setTimeout(() => {
       setStatus('success')
@@ -40,7 +40,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -48,10 +48,10 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-center text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-secondary mb-12 max-w-2xl mx-auto">
             I&apos;m currently open to new opportunities and collaborations. Feel free to reach out!
           </p>
 
@@ -62,20 +62,20 @@ const Contact = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="text-primary-600 text-xl" />
+                  <div className="w-12 h-12 bg-tertiary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="text-white text-xl" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Email</h4>
+                    <h4 className="font-medium text-white mb-1">Email</h4>
                     <a
                       href="mailto:muhammadjamal1144@gmail.com"
-                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                      className="text-secondary hover:text-white transition-colors"
                     >
                       muhammadjamal1144@gmail.com
                     </a>
@@ -83,14 +83,14 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaPhone className="text-primary-600 text-xl" />
+                  <div className="w-12 h-12 bg-tertiary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaPhone className="text-white text-xl" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Phone</h4>
+                    <h4 className="font-medium text-white mb-1">Phone</h4>
                     <a
                       href="tel:+923225307540"
-                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                      className="text-secondary hover:text-white transition-colors"
                     >
                       +923225307540
                     </a>
@@ -98,24 +98,24 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-primary-600 text-xl" />
+                  <div className="w-12 h-12 bg-tertiary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="text-white text-xl" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Location</h4>
-                    <p className="text-gray-600">
+                    <h4 className="font-medium text-white mb-1">Location</h4>
+                    <p className="text-secondary">
                       Bahawalpur, Pakistan
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-primary-50 rounded-lg">
-                <h4 className="font-bold text-gray-900 mb-2">
+              <div className="mt-8 p-6 bg-tertiary rounded-2xl border border-white/5">
+                <h4 className="font-bold text-white mb-2">
                   Looking for Opportunities
                 </h4>
-                <p className="text-gray-700">
-                  I&apos;m actively seeking internship and entry-level positions in data science 
+                <p className="text-secondary">
+                  I&apos;m actively seeking internship and entry-level positions in data science
                   and full-stack development. Let&apos;s connect!
                 </p>
               </div>
@@ -127,9 +127,9 @@ const Contact = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-tertiary p-8 rounded-2xl border border-white/5">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="name" className="block text-white font-medium mb-2">
                     Name
                   </label>
                   <input
@@ -139,13 +139,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-3 bg-[#100d25] border border-white/10 rounded-lg focus:ring-2 focus:ring-[#915eff] focus:border-transparent outline-none transition text-white placeholder-secondary"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="email" className="block text-white font-medium mb-2">
                     Email
                   </label>
                   <input
@@ -155,13 +155,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                    className="w-full px-4 py-3 bg-[#100d25] border border-white/10 rounded-lg focus:ring-2 focus:ring-[#915eff] focus:border-transparent outline-none transition text-white placeholder-secondary"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="subject" className="block text-white font-medium mb-2">
                     Subject
                   </label>
                   <input
@@ -171,13 +171,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
-                    placeholder="What&apos;s this about?"
+                    className="w-full px-4 py-3 bg-[#100d25] border border-white/10 rounded-lg focus:ring-2 focus:ring-[#915eff] focus:border-transparent outline-none transition text-white placeholder-secondary"
+                    placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="message" className="block text-white font-medium mb-2">
                     Message
                   </label>
                   <textarea
@@ -187,7 +187,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition resize-none"
+                    className="w-full px-4 py-3 bg-[#100d25] border border-white/10 rounded-lg focus:ring-2 focus:ring-[#915eff] focus:border-transparent outline-none transition resize-none text-white placeholder-secondary"
                     placeholder="Your message..."
                   />
                 </div>
@@ -195,20 +195,20 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-8 py-3 bg-tertiary border border-white/10 hover:border-[#915eff] text-white rounded-lg hover:bg-black-100 transition-all duration-200 font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                 >
                   {status === 'sending' ? (
                     'Sending...'
                   ) : (
                     <>
-                      <FaPaperPlane />
+                      <FaPaperPlane className="text-[#915eff]" />
                       Send Message
                     </>
                   )}
                 </button>
 
                 {status === 'success' && (
-                  <div className="p-4 bg-green-100 text-green-700 rounded-lg text-center">
+                  <div className="p-4 bg-green-500/10 border border-green-500 text-green-400 rounded-lg text-center">
                     Message sent successfully! I&apos;ll get back to you soon.
                   </div>
                 )}

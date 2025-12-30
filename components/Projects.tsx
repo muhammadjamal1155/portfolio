@@ -59,87 +59,106 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            A selection of my recent work in data science and full-stack development
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-800"
-              >
-                <div className="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
-                  <span className="text-white text-6xl opacity-50">📊</span>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {project.title}
-                    </h3>
-                    <span className="text-xs px-3 py-1 bg-primary-100 text-primary-600 rounded-full font-medium">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                    >
-                      <FaGithub size={20} />
-                      <span className="text-sm font-medium">Code</span>
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                    >
-                      <FaExternalLinkAlt size={18} />
-                      <span className="text-sm font-medium">Demo</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <motion.div variants={textVariant()}>
+          <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">My work</p>
+          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Projects.</h2>
         </motion.div>
+
+        <div className="w-full flex">
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          >
+            Following projects showcases my skills and experience through
+            real-world examples of my work. Each project is briefly described with
+            links to code repositories and live demos in it. It reflects my
+            ability to solve complex problems, work with different technologies,
+            and manage projects effectively.
+          </motion.p>
+        </div>
+
+        <div className="mt-20 flex flex-wrap gap-7">
+          {projects.map((project, index) => (
+            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          ))}
+        </div>
       </div>
     </section>
   )
 }
+
+const ProjectCard = ({
+  index,
+  title,
+  description,
+  technologies,
+  image,
+  github,
+  demo,
+}: any) => {
+  return (
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+      <div className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'>
+        <div className='relative w-full h-[230px]'>
+          <div className="w-full h-full bg-violet-900/20 rounded-2xl overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+            <div
+              onClick={() => window.open(github, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform'
+            >
+              <FaGithub className='w-1/2 h-1/2 text-white' />
+            </div>
+            <div
+              onClick={() => window.open(demo, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer ml-2 hover:scale-110 transition-transform'
+            >
+              <FaExternalLinkAlt className='w-1/2 h-1/2 text-white' />
+            </div>
+          </div>
+        </div>
+
+        <div className='mt-5'>
+          <h3 className='text-white font-bold text-[24px]'>{title}</h3>
+          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+        </div>
+
+        <div className='mt-4 flex flex-wrap gap-2'>
+          {technologies.map((tag: string) => (
+            <p
+              key={`${title}-${tag}`}
+              className={`text-[14px] blue-text-gradient`} // Ideally would map specific colors to tags
+            >
+              #{tag}
+            </p>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+const textVariant = (delay?: number) => {
+  return {
+    hidden: { y: -50, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: "spring", duration: 1.25, delay: delay } },
+  };
+};
+
+const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
+  return {
+    hidden: { x: 0, y: direction === "up" ? 100 : 0, opacity: 0 },
+    show: { x: 0, y: 0, opacity: 1, transition: { type: type, delay: delay, duration: duration, ease: "easeOut" } },
+  };
+};
+
 
 export default Projects

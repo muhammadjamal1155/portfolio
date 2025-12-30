@@ -5,86 +5,59 @@ import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa'
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
-              Hi, I&apos;m <span className="text-primary-600">Muhammad Jamal</span>
+    <section id="home" className="relative w-full h-screen mx-auto bg-primary bg-hero-pattern bg-cover bg-no-repeat bg-center">
+      <div className="absolute inset-0 top-[120px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="flex flex-row items-start gap-5 flex-1">
+          <div className="flex flex-col justify-center items-center mt-5">
+            <div className="w-5 h-5 rounded-full bg-[#915eff]" />
+            <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          </div>
+
+          <div>
+            <h1 className="text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+              Hi, I&apos;m <span className="text-[#915eff]">Muhammad</span>
             </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <p className="text-xl md:text-2xl text-gray-600 mb-8">
-              Data Science Student & Full Stack Developer Intern
+            <p className="text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]">
+              I develop 3D visuals, user <br className="sm:block hidden" />
+              interfaces and web applications
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-              Passionate about building data-driven solutions and creating seamless web experiences. 
-              Combining analytical insights with modern development practices.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium shadow-lg hover:shadow-xl"
-            >
-              Get In Touch
-            </a>
-            <a
-              href="/resume.pdf"
-              download
-              className="px-8 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors duration-200 font-medium flex items-center gap-2"
-            >
-              <FaFileDownload />
-              Download Resume
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-6"
-          >
-            <a
-              href="https://github.com/muhammadjamal1155"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
-            >
-              <FaGithub size={30} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/muhammad-jamal-a08241240"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
-            >
-              <FaLinkedin size={30} />
-            </a>
-          </motion.div>
+          </div>
         </div>
+
+        <div className="flex-1 flex justify-center items-center relative z-10">
+          <div className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-[#915eff]/30 shadow-[0_0_50px_rgba(145,94,255,0.3)] relative group">
+            <div className="absolute inset-0 bg-[#915eff]/10 group-hover:bg-transparent transition-colors duration-300 z-20"></div>
+            <img
+              src="/hero-profile.png"
+              alt="Muhammad Jamal"
+              className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Simulated Computers Canvas - Placeholder for now to avoid breaking build with missing Three.js deps */}
+      <div className="absolute top-[40%] w-full flex justify-center items-center">
+        {/* Placeholder image or just empty space for the '3D' vibe */}
+        {/* If user provided an image, we could use it, otherwise just leave space or use a static graphic */}
+      </div>
+
+      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+        <a href="#about">
+          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="w-3 h-3 rounded-full bg-secondary mb-1"
+            />
+          </div>
+        </a>
       </div>
     </section>
   )

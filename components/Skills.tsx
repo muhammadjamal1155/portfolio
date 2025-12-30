@@ -2,25 +2,28 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { 
-  FaPython, 
-  FaReact, 
-  FaNodeJs, 
-  FaDatabase, 
+import {
+  FaPython,
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
   FaGitAlt,
-  FaDocker 
+  FaDocker,
+  FaChartBar,
+  FaChartLine
 } from 'react-icons/fa'
-import { 
-  SiTensorflow, 
-  SiPandas, 
-  SiScikitlearn, 
+import {
+  SiTensorflow,
+  SiPandas,
+  SiScikitlearn,
   SiJavascript,
   SiTypescript,
   SiNextdotjs,
   SiTailwindcss,
   SiMongodb,
   SiPostgresql,
-  SiJupyter
+  SiJupyter,
+  SiNumpy
 } from 'react-icons/si'
 
 const Skills = () => {
@@ -35,6 +38,9 @@ const Skills = () => {
       skills: [
         { name: 'Python', icon: <FaPython className="text-4xl text-blue-500" /> },
         { name: 'Pandas', icon: <SiPandas className="text-4xl text-blue-600" /> },
+        { name: 'NumPy', icon: <SiNumpy className="text-4xl text-blue-400" /> },
+        { name: 'Matplotlib', icon: <FaChartBar className="text-4xl text-green-500" /> },
+        { name: 'Seaborn', icon: <FaChartLine className="text-4xl text-indigo-400" /> },
         { name: 'Scikit-learn', icon: <SiScikitlearn className="text-4xl text-orange-500" /> },
         { name: 'TensorFlow', icon: <SiTensorflow className="text-4xl text-orange-600" /> },
         { name: 'Jupyter', icon: <SiJupyter className="text-4xl text-orange-500" /> },
@@ -69,7 +75,7 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-950">
+    <section id="skills" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -77,30 +83,32 @@ const Skills = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-4xl font-bold text-center text-white mb-12">
             Skills & Technologies
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-10">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="bg-white rounded-lg p-6 shadow-md"
+                className="w-full"
               >
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                <h3 className="text-2xl font-bold text-white mb-6 pl-2 border-l-4 border-violet-500">
                   {category.title}
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex flex-col items-center justify-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-[#151030] border border-white/10 hover:border-violet-500 transition-colors duration-300 group h-full"
                     >
-                      <div className="mb-2">{skill.icon}</div>
-                      <span className="text-sm font-medium text-gray-700 text-center">
+                      <div className="text-4xl group-hover:scale-110 transition-transform duration-300 min-w-[40px] flex justify-center">
+                        {skill.icon}
+                      </div>
+                      <span className="text-lg font-medium text-white group-hover:text-violet-500 transition-colors whitespace-nowrap">
                         {skill.name}
                       </span>
                     </div>

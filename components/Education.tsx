@@ -39,89 +39,78 @@ const Education = () => {
   ]
 
   return (
-    <section id="education" className="py-20 bg-gray-50">
+    <section id="education" className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Education & Certifications
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Education */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <FaGraduationCap className="text-3xl text-primary-600" />
-                <h3 className="text-2xl font-bold text-gray-800">Education</h3>
-              </div>
-
-              {education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white rounded-lg p-6 shadow-md mb-4"
-                >
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">
-                    {edu.degree}
-                  </h4>
-                  <p className="text-primary-600 font-medium mb-2">
-                    {edu.institution}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-3">
-                    {edu.period}
-                  </p>
-                  {edu.gpa && (
-                    <p className="text-gray-700 font-medium mb-3">
-                      GPA: {edu.gpa}
-                    </p>
-                  )}
-                  <p className="text-gray-600">
-                    {edu.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Certifications */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <FaCertificate className="text-3xl text-primary-600" />
-                <h3 className="text-2xl font-bold text-gray-800">Certifications</h3>
-              </div>
-
-              <div className="space-y-4">
-                {certifications.map((cert, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                    className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200"
-                  >
-                    <h4 className="font-bold text-gray-900 mb-1">
-                      {cert.name}
-                    </h4>
-                    <p className="text-primary-600 text-sm font-medium mb-1">
-                      {cert.issuer}
-                    </p>
-                    <p className="text-gray-500 text-sm">
-                      {cert.date}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <motion.div variants={textVariant()}>
+          <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">What I have studied so far</p>
+          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Education.</h2>
         </motion.div>
+
+        <div className="mt-20 flex flex-col">
+          <div className="relative border-l-2 border-white-100 mx-auto md:mx-0 md:ml-5 ml-5">
+            {/* Education Items */}
+            {education.map((edu, index) => (
+              <EducationCard key={index} edu={edu} />
+            ))}
+            {/* Certifications Items */}
+            {certifications.map((cert, index) => (
+              <CertificationCard key={`cert-${index}`} cert={cert} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
 }
+
+const EducationCard = ({ edu }: any) => {
+  return (
+    <div className="mb-8 ml-6 relative">
+      {/* Dot */}
+      <span className="absolute -left-[35px] flex items-center justify-center w-4 h-4 rounded-full bg-secondary ring-8 ring-primary ring-opacity-100"></span>
+
+      <div className="p-5 rounded-[12px] bg-tertiary sm:w-full md:w-[600px] w-full relative">
+        {/* Arrow */}
+        <div className="absolute top-6 -left-2 w-4 h-4 bg-tertiary transform rotate-45"></div>
+
+        <h3 className="text-white text-[24px] font-bold">{edu.degree}</h3>
+        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>{edu.institution}</p>
+        <ul className='mt-5 list-disc ml-5 space-y-2'>
+          <li className='text-white-100 text-[14px] pl-1 tracking-wider'>
+            {edu.period}
+          </li>
+          <li className='text-white-100 text-[14px] pl-1 tracking-wider'>
+            GPA: {edu.gpa}
+          </li>
+          <li className='text-white-100 text-[14px] pl-1 tracking-wider'>
+            {edu.description}
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+const CertificationCard = ({ cert }: any) => {
+  return (
+    <div className="mb-8 ml-6 relative">
+      <span className="absolute -left-[35px] flex items-center justify-center w-4 h-4 rounded-full bg-secondary ring-8 ring-primary"></span>
+      <div className="p-5 rounded-[12px] bg-tertiary sm:w-full md:w-[600px] w-full relative">
+        <div className="absolute top-6 -left-2 w-4 h-4 bg-tertiary transform rotate-45"></div>
+        <h3 className="text-white text-[24px] font-bold">{cert.name}</h3>
+        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>{cert.issuer}</p>
+        <p className='text-gray-400 text-[14px] mt-2'>{cert.date}</p>
+      </div>
+    </div>
+  )
+}
+
+const textVariant = (delay?: number) => {
+  return {
+    hidden: { y: -50, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: "spring", duration: 1.25, delay: delay } },
+  };
+};
+
 
 export default Education
